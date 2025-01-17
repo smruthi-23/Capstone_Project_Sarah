@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation System</title>
+</head>
+<body>
+    <h1>Welcome to the Recommendation System</h1>
+    <form action="/recommend" method="POST">
+        <label for="user_id">Enter User Name:</label>
+        <input type="text" id="user_id" name="user_id" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+    {% if recommendations %}
+    <h2>Top 5 Recommended Items  for {{ user }}</h2>
+    <ul>
+        {% for item in recommendations %}
+            <li>{{ loop.index }}. {{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        {% if error %}
+            <p class="error" style="color:red;">{{ error }}</p>
+        {% endif %}
+
+    <!-- Display default content when no recommendations or errors exist -->
+        {% if not recommendations and not error %}
+            <p>Welcome! Please provide a user ID to get recommendations.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
