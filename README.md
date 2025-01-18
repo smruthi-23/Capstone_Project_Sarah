@@ -1,6 +1,6 @@
-Capstone Project
+# Capstone Project
 
-Sentiment Based Product Recommendation System 
+# Sentiment Based Product Recommendation System 
 
 ## Overview
 
